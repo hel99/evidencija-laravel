@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class AuthKontroler extends Controller
@@ -39,5 +40,32 @@ class AuthKontroler extends Controller
                 'status' => 200
             ]);
         }
+    }
+
+
+
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 404
+            ]);
+        }
+
+        $zaposleni = DB::table('zaposleni')->where('email', $request->email)->first();
+
+        if (Hash::check($request->password, $zaposleni->password))
+            return response()->json([
+                'status' => 200
+            ]);
+        else
+            return response()->json([
+                'status' => 404
+            ]);
     }
 }
