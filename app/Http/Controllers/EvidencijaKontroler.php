@@ -90,7 +90,6 @@ class EvidencijaKontroler extends Controller
 
 
 
-    
     public function zaposleniSearch($input)
     {
         $zaposleni = DB::table('zaposleni')
@@ -103,6 +102,24 @@ class EvidencijaKontroler extends Controller
         return response()->json([
             'status' => 200,
             'zaposleni' => $zaposleni
+        ]);
+    }
+
+
+
+
+    public function zaposleniSort($sortiranje)
+    {
+        $zaposleni = DB::table('zaposleni')
+            ->orderBy('kasnjenja', $sortiranje)
+            ->get();
+
+        $sortiranje == 'ASC' ? $sortiranje = 'DESC' : $sortiranje = 'ASC';
+
+        return response()->json([
+            'status' => 200,
+            'zaposleni' => $zaposleni,
+            'sortiranje' => $sortiranje
         ]);
     }
 }

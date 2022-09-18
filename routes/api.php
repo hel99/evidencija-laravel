@@ -24,6 +24,7 @@ Route::get('prisustva', [EvidencijaKontroler::class, 'prisustva']);
 Route::get('kasnjenja', [EvidencijaKontroler::class, 'kasnjenja']);
 Route::get('zaposleni', [EvidencijaKontroler::class, 'zaposleni']);
 Route::get('zaposleni-search/{input}', [EvidencijaKontroler::class, 'zaposleniSearch']);
+Route::get('zaposleni-sort/{sortiranje}', [EvidencijaKontroler::class, 'zaposleniSort']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
