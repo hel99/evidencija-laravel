@@ -45,6 +45,10 @@ class EvidencijaKontroler extends Controller
                 ->update([
                     'kasnjenja' => $brojKasnjenjaZaposleni
                 ]);
+
+            return response()->json([
+                'brojKasnjenjaZaposleni' => $brojKasnjenjaZaposleni
+            ]);
         }
     }
 
@@ -74,9 +78,4 @@ class EvidencijaKontroler extends Controller
             'kasnjenja' => $kasnjenja
         ]);
     }
-
-
-
-
- 
 }

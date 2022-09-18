@@ -23,6 +23,8 @@ Route::post('login', [AuthKontroler::class, 'login']);
 Route::get('check-login/{id}', [EvidencijaKontroler::class, 'checkLogin']);
 Route::get('prisustva', [EvidencijaKontroler::class, 'prisustva']);
 Route::get('kasnjenja', [EvidencijaKontroler::class, 'kasnjenja']);
+
+
 Route::get('zaposleni', [ZaposleniKontroler::class, 'zaposleni']);
 Route::get('zaposleni-search/{input}', [ZaposleniKontroler::class, 'zaposleniSearch']);
 Route::get('zaposleni-sort/{sortiranje}', [ZaposleniKontroler::class, 'zaposleniSort']);
