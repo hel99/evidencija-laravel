@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthKontroler;
 use App\Http\Controllers\EvidencijaKontroler;
+use App\Http\Controllers\ZaposleniKontroler;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,10 +23,10 @@ Route::post('login', [AuthKontroler::class, 'login']);
 Route::get('check-login/{id}', [EvidencijaKontroler::class, 'checkLogin']);
 Route::get('prisustva', [EvidencijaKontroler::class, 'prisustva']);
 Route::get('kasnjenja', [EvidencijaKontroler::class, 'kasnjenja']);
-Route::get('zaposleni', [EvidencijaKontroler::class, 'zaposleni']);
-Route::get('zaposleni-search/{input}', [EvidencijaKontroler::class, 'zaposleniSearch']);
-Route::get('zaposleni-sort/{sortiranje}', [EvidencijaKontroler::class, 'zaposleniSort']);
-Route::delete('zaposleni-delete/{idZaposleni}', [EvidencijaKontroler::class, 'zaposleniDelete']);
+Route::get('zaposleni', [ZaposleniKontroler::class, 'zaposleni']);
+Route::get('zaposleni-search/{input}', [ZaposleniKontroler::class, 'zaposleniSearch']);
+Route::get('zaposleni-sort/{sortiranje}', [ZaposleniKontroler::class, 'zaposleniSort']);
+Route::delete('zaposleni-delete/{idZaposleni}', [ZaposleniKontroler::class, 'zaposleniDelete']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
