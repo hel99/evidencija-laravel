@@ -51,8 +51,21 @@ class EvidencijaKontroler extends Controller
         $prisustva = DB::table('prisustva')->join('zaposleni', 'zaposleni.id', '=', 'prisustva.zaposleni_id')->get();
 
         return response()->json([
-            'status' => 200,    
+            'status' => 200,
             'prisustva' => $prisustva
+        ]);
+    }
+
+
+
+
+    public function kasnjenja()
+    {
+        $kasnjenja = DB::table('kasnjenja')->join('zaposleni', 'zaposleni.id', '=', 'kasnjenja.zaposleni_id')->get();
+
+        return response()->json([
+            'status' => 200,
+            'kasnjenja' => $kasnjenja
         ]);
     }
 }
