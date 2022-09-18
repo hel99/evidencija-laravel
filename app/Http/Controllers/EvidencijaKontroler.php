@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DateTime;
 use DateTimeZone;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 
 class EvidencijaKontroler extends Controller
@@ -73,6 +72,19 @@ class EvidencijaKontroler extends Controller
         return response()->json([
             'status' => 200,
             'kasnjenja' => $kasnjenja
+        ]);
+    }
+
+
+
+
+    public function zaposleni()
+    {
+        $zaposleni = DB::table('zaposleni')->get();
+
+        return response()->json([
+            'status' => 200,
+            'zaposleni' => $zaposleni
         ]);
     }
 }
