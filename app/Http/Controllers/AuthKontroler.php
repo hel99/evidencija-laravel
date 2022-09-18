@@ -61,7 +61,8 @@ class AuthKontroler extends Controller
 
         if (Hash::check($request->password, $zaposleni->password))
             return response()->json([
-                'status' => 200
+                'status' => 200,
+                'id' => $zaposleni->id
             ]);
         else
             return response()->json([
