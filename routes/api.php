@@ -20,6 +20,8 @@ Route::post('register', [AuthKontroler::class, 'register']);
 Route::post('login', [AuthKontroler::class, 'login']);
 
 Route::get('check-login/{id}', [EvidencijaKontroler::class, 'checkLogin']);
+Route::get('prisustva', [EvidencijaKontroler::class, 'prisustva']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -33,7 +33,7 @@ class AuthKontroler extends Controller
                 'last_name' => $request->last_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'phone_number' => 'required|string'
+                'phone_number' => $request->phone_number
             ]);
 
             return response()->json([

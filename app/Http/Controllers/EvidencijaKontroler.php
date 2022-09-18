@@ -41,4 +41,18 @@ class EvidencijaKontroler extends Controller
             ]);
         }
     }
+
+
+
+
+
+    public function prisustva()
+    {
+        $prisustva = DB::table('prisustva')->join('zaposleni', 'zaposleni.id', '=', 'prisustva.zaposleni_id')->get();
+
+        return response()->json([
+            'status' => 200,    
+            'prisustva' => $prisustva
+        ]);
+    }
 }
