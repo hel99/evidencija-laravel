@@ -23,6 +23,7 @@ Route::get('check-login/{id}', [EvidencijaKontroler::class, 'checkLogin']);
 Route::get('prisustva', [EvidencijaKontroler::class, 'prisustva']);
 Route::get('kasnjenja', [EvidencijaKontroler::class, 'kasnjenja']);
 Route::get('zaposleni', [EvidencijaKontroler::class, 'zaposleni']);
+Route::get('zaposleni-search/{input}', [EvidencijaKontroler::class, 'zaposleniSearch']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

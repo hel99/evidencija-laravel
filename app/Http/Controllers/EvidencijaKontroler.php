@@ -87,4 +87,22 @@ class EvidencijaKontroler extends Controller
             'zaposleni' => $zaposleni
         ]);
     }
+
+
+
+    
+    public function zaposleniSearch($input)
+    {
+        $zaposleni = DB::table('zaposleni')
+            ->where('first_name', 'like', "%$input%")
+            ->orWhere('last_name', 'like', "%$input%")
+            ->orWhere('email', 'like', "%$input%")
+            ->orWhere('phone_number', 'like', "%$input%")
+            ->get();
+
+        return response()->json([
+            'status' => 200,
+            'zaposleni' => $zaposleni
+        ]);
+    }
 }
