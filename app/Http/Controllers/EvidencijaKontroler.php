@@ -39,6 +39,13 @@ class EvidencijaKontroler extends Controller
                 'zaposleni_id' => $id,
                 'prijava' => $loginTime
             ]);
+
+            $brojKasnjenjaZaposleni = DB::table('kasnjenja')->where('zaposleni_id', $id)->get()->count();
+
+            DB::table('zaposleni')->where('id', $id)
+                ->update([
+                    'kasnjenja' => $brojKasnjenjaZaposleni
+                ]);
         }
     }
 
