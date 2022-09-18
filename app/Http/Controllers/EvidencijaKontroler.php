@@ -122,4 +122,18 @@ class EvidencijaKontroler extends Controller
             'sortiranje' => $sortiranje
         ]);
     }
+
+
+
+
+    public function zaposleniDelete($idZaposleni)
+    {
+        DB::table('zaposleni')
+            ->where('id', $idZaposleni)
+            ->delete();
+
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
 }
